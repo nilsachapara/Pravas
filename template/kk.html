@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Query submitted</title>
+  <script>
+    setTimeout(function(){
+        window.location.href = "/";
+    }, 4000);
+</script>
+  <style>
+    #timer{
+      font-size: 20px;
+      font-weight: 1000;
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Your query succefully executed.</h1>
+  <p>You will be redirected to the index page in <span id="timer">4</span> seconds.</p>
+  <a href="/">Home page</a>
+
+
+  <script>
+    // Get the timer element from the HTML page
+    var timerElement = document.getElementById('timer');
+
+    // Set the initial value of the timer to 5
+    var timerValue = 4;
+
+    // Use the setInterval() function to update the timer every second
+    var timerInterval = setInterval(function() {
+      timerValue--;
+      timerElement.textContent = timerValue;
+
+      // If the timer reaches 0, clear the interval
+      if (timerValue === 0) {
+        clearInterval(timerInterval);
+      }
+    }, 1000);
+  </script>
+</body>
+
+</html>

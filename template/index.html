@@ -1,0 +1,333 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>YOUR DREAM DESTINATION</h3>
+        <p>Travel is the best teacher. Improve your life, travel with us!</p>
+        <a href="#" class="btn roundb">discover more</a>
+    </div>
+
+    <div class="video-container">
+
+        <video src="{{ url_for('static', filename='images/video-1.mp4') }}" id="video-slider" loop autoplay
+            muted></video>
+    </div>
+
+</section>
+
+<section class="book" id="book">
+
+    <h1 class="heading">
+        <span>b</span>
+        <span>o</span>
+        <span>o</span>
+        <span>k</span>
+        <span class="space"></span>
+        <span>n</span>
+        <span>o</span>
+        <span>w</span>
+    </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="{{ url_for('static', filename='images/book-img.jpg') }}" alt="">
+        </div>
+
+        <form action="">
+            <div class="inputBox">
+                <h3>where to go</h3>
+                <input type="text" placeholder="Destination name" required>
+            </div>
+            <div class="inputBox">
+                <h3>how many</h3>
+                <input type="number" placeholder="Number of people" required>
+            </div>
+            <div class="inputBox">
+                <h3>date of arrivals</h3>
+                <input type="date" style="text-transform:uppercase;" required>
+            </div>
+            <div class="inputBox">
+                <h3>date of leaving</h3>
+                <input type="date" style="text-transform:uppercase;" required>
+            </div>
+            <input type="submit" class="btn" value="book now">
+        </form>
+
+    </div>
+
+</section>
+
+<section class="packages" id="packages">
+
+    <h1 class="heading">
+        <span>p</span>
+        <span>a</span>
+        <span>c</span>
+        <span>k</span>
+        <span>a</span>
+        <span>g</span>
+        <span>e</span>
+        <span>s</span>
+    </h1>
+
+    <div class="box-container">
+
+        {% for i in packages %}
+
+        <div class="box">
+            <img src="{{ url_for('static', filename='uploads/' + i.image) }}" alt="">
+            <div class="content">
+                <h3> <i class="fas fa-map-marker-alt"></i> {{i.name}} </h3>
+                <p>{{i.description}}</p>
+                <div class="stars">
+                    {% set num_stars = i.rating | float / 5 * 5 %}
+                    {% set full_stars = num_stars | int %}
+                    {% set half_stars = 1 if num_stars - full_stars >= 0.5 else 0 %}
+                    {% set empty_stars = 5 - full_stars - half_stars %}
+                    <div class="stars">
+                        {% for i in range(full_stars) %}
+                        <i class="fas fa-star"></i>
+                        {% endfor %}
+                        {% if half_stars %}
+                        <i class="fas fa-star-half-alt"></i>
+                        {% endif %}
+                        {% for i in range(empty_stars) %}
+                        <i class="far fa-star"></i>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="price"> <i class="fa fa-rupee-sign" aria-hidden="true"></i>{{i.dprice}} <span><i
+                            class="fa fa-rupee-sign" aria-hidden="true"></i>{{i.oprice}}</span> </div>
+                <a href="/book/{{i.id}}" class="btn">book now</a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<section class="services" id="services">
+
+    <h1 class="heading">
+        <span>s</span>
+        <span>e</span>
+        <span>r</span>
+        <span>v</span>
+        <span>i</span>
+        <span>c</span>
+        <span>e</span>
+        <span>s</span>
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-hotel"></i>
+            <h3>affordable hotels</h3>
+            <p>We provide you hotels at afforable and best price according to your descried place.</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-utensils"></i>
+            <h3>food and drinks</h3>
+            <p>we are responsible for arranging all food and drinks stuff for you.We provide all different types of
+                food from different countries. Whatever you want you'll get that on your table. </p>
+        </div>
+        <div class="box">
+            <i class="fas fa-bullhorn"></i>
+            <h3>safety guide</h3>
+            <p>We always make sure all the safety guides of our customers.So, with Pravas Tours you not need to
+                worry about anything. With us you are totally safe.</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-globe-asia"></i>
+            <h3>around the world</h3>
+            <p>So we are responsible for providing you exposure of different places all around the globe.</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-plane"></i>
+            <h3>fastest travel</h3>
+            <p>We arrange all best travel services for our customers. We ensure that you will reach to your
+                destination on time.</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-hiking"></i>
+            <h3>adventures</h3>
+            <p>With Us, you'll get all facilities to explore the best nature adventures.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="gallery" id="gallery">
+
+    <h1 class="heading">
+        <span>g</span>
+        <span>a</span>
+        <span>l</span>
+        <span>l</span>
+        <span>e</span>
+        <span>r</span>
+        <span>y</span>
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/g-1.jpg') }}" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lets explore the world with Pravas Tours!</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/g-2.jpg') }}" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lets explore the world with Pravas Tours!</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/g-3.jpg') }}" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lets explore the world with Pravas Tours!</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/g-4.jpg') }}" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lets explore the world with Pravas Tours!</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/g-5.jpg') }}" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lets explore the world with Pravas Tours!</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/g-6.jpg') }}" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lets explore the world with Pravas Tours!</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/g-7.jpg') }}" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lets explore the world with Pravas Tours!.</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/g-8.jpg') }}" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lets explore the world with Pravas Tours!</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/g-9.jpeg') }}" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lets explore the world with Pravas Tours!</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+<section class="review" id="review">
+
+    <h1 class="heading">
+        <span>r</span>
+        <span>e</span>
+        <span>v</span>
+        <span>i</span>
+        <span>e</span>
+        <span>w</span>
+    </h1>
+
+    <div class="swiper-container review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="{{ url_for('static', filename='images/pic2.jpg') }}" alt="">
+                    <h3>Anamika</h3>
+                    <p>Pravas Tours provide best destination plans. There services are very good.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <h1 class="heading">
+        <span>c</span>
+        <span>o</span>
+        <span>n</span>
+        <span>t</span>
+        <span>a</span>
+        <span>c</span>
+        <span>t</span>
+    </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="{{ url_for('static', filename='images/contact-img.jpg') }}" alt="" action=" ">
+        </div>
+
+        <form id="myForm" action="/kk" method="POST">
+            <div class="inputBox">
+                <input type="text" name="name" placeholder="Name">
+                <input type="email" name="email" placeholder="Email">
+            </div>
+            <div class="inputBox">
+                <input type="number" name="phone" placeholder="Number">
+                <input type="text" name="subject" placeholder="Subject">
+            </div>
+            <textarea placeholder="Message" name="msg" name="" id="" cols="30" rows="10"></textarea>
+            <input type="submit" id="myButton" class="btn" value="send message">
+        </form>
+
+        <script src="{{ url_for('static', filename='js/javas.js') }}"></script>
+    </div>
+
+
+</section>
+{% endblock %}

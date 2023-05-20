@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aindex.css') }}">
+</head>
+
+<body>
+    <header>
+        <div>
+            <p>{{usern}}'s Dashboard</p>
+        </div>
+        <div>
+            <a href="/logout/a/{{usern}}">logout</a>
+        </div>
+    </header>
+    <section>
+    
+    <div class="head">
+        <p>{% if Package %}Editing Package. {%else%}Creating a new Package. {%endif%} </p>
+    </div>
+
+    <form enctype="multipart/form-data" class="sf"{% if Package %} action="/edit/package/{{Package.id}}" {%else%} action="/admin/addpackage"{%endif%}  method="post">
+        <label for="name">Package Name:</label>
+        <input type="text" id="Packagename" name="name"  {% if Package %} value="{{Package.name}}" disabled{%endif%}>
+
+        <div class="description">
+            <label for="description">Package Description:</label>
+            <textarea id="description" name="description" >{%if Package %} {{Package.description}} {%endif%}</textarea>
+          </div>
+
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" step="0.5" min="0" max="5" {% if Package %} value="{{Package.rating}}" {%endif%} required>
+
+        <label for="dprice">Discounted Price:</label>
+        <input type="number" id="dprice" name="dprice" {% if Package %} value="{{Package.dprice}}" {%endif%}>
+
+        <label for="oprice">Original Price:</label>
+        <input type="number" id="oprice" name="oprice" {% if Package %} value="{{Package.oprice}}" {%endif%}>
+        <label for="image">Image:</label>
+        <input type="file" id="file" name="image"  accept="image/*" required>
+        {%if q%}
+        <div class="warning">
+            <p>{{q}}</p>
+        </div>
+        {%endif%}
+        <div class="sub"><center><input type="submit" {% if Package %} value="Update" {%else%}value="Add Package" {%endif%} ></center></div>
+
+    </form>
+</section>
+</body>
+
+</html>

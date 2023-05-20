@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body>
+    <div id="login-box">
+        <div class="left">
+            <h1>Login</h1>
+            <form action="/login" method="post">
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="checkbox" id="remember">
+                <label for="remember">remember me</label>
+                <p>Forget password? <a href="#">click here</a></p>
+                <p>Don't have and account? <a href="/signup">register now</a></p>
+                {%if q%}
+                    <p class="warning">{{q}}</p>
+                    <div class="qq">
+                <input type="submit" name="signup_submit" value="Login now" /></div>
+                {%else%}
+                <input type="submit" name="signup_submit" value="Login now" />
+                {%endif%}
+
+            </form>
+        </div>
+
+        <div class="right">
+            <span class="loginwith">Sign in with<br />social network</span>
+
+            <button class="social-signin facebook"><img src="{{ url_for('static', filename='images/facebook.png') }}" alt=""> Log in with facebook</button>
+            <button class="social-signin twitter"><img src="{{ url_for('static', filename='images/twitter.png') }}" alt="">Log in with Twitter</button>
+            <button class="social-signin google"><img src="{{ url_for('static', filename='images/google.png') }}" alt=""> Log in with Google</button>
+        </div>
+        <div class="or">OR</div>
+    </div>
+</body>
+
+</html>

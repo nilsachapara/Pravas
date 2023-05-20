@@ -1,0 +1,215 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<section class="home" id="home">
+
+    <div class="content"><h3>Experience the Magic of {{p.name}}</h3>
+    <p>Discover the beauty, history, and culture of the Eternal City with our exclusive tour package.</p>
+    <a href="/payment/{{p.id}}" class="button">Book Now</a>
+    </div>
+
+    <div class="video-container">
+        <img src="{{ url_for('static', filename='uploads/'+p.image) }}" id="video-slider"></img>
+    </div>
+
+</section>
+
+<section class="sec" id="inclusions">
+    <h2>Inclusions:</h2>
+    <ul>
+        <li>Flight tickets from Mumbai to Rome and back</li>
+        <li>Accommodation in a 3 or 4-star hotel for the duration of the tour</li>
+        <li>Daily breakfast at the hotel</li>
+        <li>Guided sightseeing tours in Rome with a knowledgeable tour guide</li>
+        <li>Entrance fees to popular tourist attractions in Rome, such as the Colosseum, Vatican City, and the
+            Pantheon</li>
+        <li>A visit to the Roman Forum and other ancient ruins</li>
+        <li>A trip to the Vatican Museum and Sistine Chapel</li>
+        <li>Walking tours of Rome's historical neighborhoods, such as Trastevere and the Jewish Ghetto</li>
+        <li>A traditional Italian dinner at a local restaurant</li>
+        <li>Transfer services between the hotel and the airport</li>
+    </ul>
+    <section class="sec" id="exclusions"></section>
+    <h2>Exclusions</h2>
+    <ul>
+        <li>Visa fees and application process</li>
+        <li>Travel insurance</li>
+        <li>Airline baggage fees</li>
+        <li>Meals and drinks (excluding breakfast and any included meals mentioned in the itinerary)</li>
+        <li>Personal expenses such as souvenirs, tips, and phone calls</li>
+        <li>Optional activities not included in the itinerary</li>
+        <li>Airport transfers outside of the scheduled arrival and departure times</li>
+        <li>Any additional costs incurred due to flight delays or cancellations</li>
+        <li>Medical expenses and emergency evacuation services</li>
+        <li>Any other items not specifically mentioned as included in the tour package.</li>
+    </ul>
+    </section>
+</section>
+
+<section class="sec" id="about">
+    <h2>About Rome Tour Package</h2>
+    <p>Our Rome Tour Package offers a unique and comprehensive way to experience the beauty, history, and culture of
+        the Eternal City. We take care of all the details so you can relax and enjoy your stay in Rome. Our package
+        includes round-trip flights from Mumbai to Rome, accommodations in a 3 or 4-star hotel, daily breakfast,
+        guided sightseeing tours, entrance fees to popular tourist attractions, a traditional Italian dinner, and
+        transfer services between the hotel and the airport.</p>
+</section>
+<section class="sec" id="itinerary">
+    <h2>Sample Itinerary:</h2>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Activity</th>
+        </tr>
+        <tr>
+            <td rowspan="5">1</td>
+            <td>Arrival in Rome</td>
+        </tr>
+        <tr>
+
+            <td>Meet and greet at the airport</td>
+        </tr>
+        <tr>
+            <td>Transfer to the hotel</td>
+        </tr>
+        <tr>
+            <td>Dinner At A Grand Italian Restaurant</td>
+        </tr>
+
+        <tr>
+
+            <td>Check-in and rest of the day at leisure</td>
+        </tr>
+
+        <tr>
+            <td rowspan="7">2</td>
+            <td>Vatican City and Sistine Chapel</td>
+        </tr>
+        <tr>
+
+            <td>Breakfast at the hotel</td>
+        </tr>
+        <tr>
+
+            <td>Guided tour of Vatican City and the Sistine Chapel</td>
+        </tr>
+        <tr>
+            <td>Visit St. Peter's Basilica</td>
+        </tr>
+        <tr>
+            <td>Lunch at a local restaurant</td>
+        </tr>
+        <tr>
+            <td>Walking tour of Trastevere neighborhood</td>
+        </tr>
+        <tr>
+            <td>Dinner at a traditional Italian restaurant</td>
+        </tr>
+        <tr>
+            <td rowspan="7">3</td>
+            <td>Ancient Rome</td>
+        </tr>
+        <tr>
+            <td>Breakfast at the hotel</td>
+        </tr>
+        <tr>
+            <td>Guided tour of the Colosseum and Roman Forum</td>
+        </tr>
+        <tr>
+            <td>Visit the Pantheon</td>
+        </tr>
+        <tr>
+            <td>Lunch at a local restaurant</td>
+        </tr>
+        <tr>
+            <td>Afternoon at leisure</td>
+        </tr>
+        <tr>
+            <td>Optional evening activity</td>
+        </tr>
+        <tr>
+            <td rowspan="7">4</td>
+            <td>Jewish Ghetto and Trevi Fountain</td>
+        </tr>
+        <tr>
+            <td>Breakfast at the hotel</td>
+        </tr>
+        <tr>
+            <td>Walking tour of the Jewish Ghetto</td>
+        </tr>
+        <tr>
+            <td>Visit the Trevi Fountain</td>
+        </tr>
+        <tr>
+            <td>Lunch at a local restaurant</td>
+        </tr>
+        <tr>
+            <td>Afternoon at leisure</td>
+        </tr>
+        <tr>
+            <td>Optional evening activity</td>
+        </tr>
+        <tr>
+            <td rowspan="4">5</td>
+            <td>Departure</td>
+        </tr>
+        <tr>
+            <td>Breakfast at the hotel</td>
+        </tr>
+        <tr>
+            <td>Check-out and transfer to the airport</td>
+        </tr>
+        <tr>
+            <td>Departure from Rome</td>
+        </tr>
+    </table>
+</section>
+<section class="sec" id="hotels">
+    <h2>Stay in Hotels:</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Day</th>
+            <th>Date</th>
+            <th>Hotel Name</th>
+            <th>Nights of Stay</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>01/05/2023</td>
+            <td>XYZ Hotel Mumbai</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>02/05/2023</td>
+            <td>Hotel ABC Rome</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>03/05/2023</td>
+            <td>Hotel DEF Rome</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>04/05/2023</td>
+            <td>Hotel GHI Rome</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>05/05/2023</td>
+            <td>XYZ Hotel Mumbai</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table>
+</section>
+
+
+{% endblock %}

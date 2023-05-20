@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravas</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome --->
+    <script src="https://kit.fontawesome.com/f9e6144d7d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pravas.css') }}">
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div class="loader-container" id="loader-container">
+        <div class="loader-logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Your Logo" />
+        </div>
+        <div class="loader-circle"></div>
+    </div>
+
+    <header class="header">
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <a href="#" class="logoi">
+            <span><img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"></span>
+        </a>
+        <div class="logo">
+            <a href="#">
+                <h2>P<span class="logi">R</span>AVAS</h2>
+            </a>
+        </div>
+        <nav class="navbar">
+            <a href="/" id="abc">home</a>
+            <a href="#book">book</a>
+            <a href="#packages">packages</a>
+            <a href="#services">services</a>
+            <a href="#gallery">gallery</a>
+            <a href="#review">review</a>
+            <a href="#contact">contact</a>
+        </nav>  
+
+        <div class="icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <a {%if user%} href="/profile/{{user.username}}"><img src={{ url_for('static', filename='ppic/' + user.image) }}> {%else%} href="/login" target="_blank"><i class="fas fa-user" id="login-btn"></i> {%endif%} </a>
+        </div>
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>about us</h3>
+                <div class="afo">
+                    <a href="#" class="logoi"><span><img src="{{ url_for('static', filename='images/logo.png') }}"
+                                alt="logo"></span></a>
+                    <div class="logo alogo">
+                        <a href="#">
+                            <h2>P<span class="logi">R</span>AVAS</h2>
+                        </a>
+                    </div>
+                </div>
+                <p>Pravas Tours are professional planners for your vacations. No matter where you're going
+                    from, we take
+                    you there. We provide best destination for you and your family at an affordable price.</p>
+            </div>
+            <div class="box">
+                <h3>branch locations</h3>
+                <a href="">india</a>
+                <a href="#">USA</a>
+                <a href="#">france</a>
+                <iframe src="https://www.google.com/maps/d/embed?mid=1duMC0IU6ELKwYgPqAwggkdOyIQOrSrs&ehbc=2E312F"
+                    width="300" height="200"></iframe>
+            </div>
+            <div class="box qbox">
+                <h3>quick links</h3>
+                <a href="#book"><i class="fa fa-arrow-right" aria-hidden="true"></i>book</a>
+                <a href="#home"><i class="fa fa-arrow-right" aria-hidden="true"></i>home</a>
+                <a href="#packages"><i class="fa fa-arrow-right" aria-hidden="true"></i>packages</a>
+                <a href="#services"><i class="fa fa-arrow-right" aria-hidden="true"></i>services</a>
+                <a href="#gallery"><i class="fa fa-arrow-right" aria-hidden="true"></i>gallery</a>
+                <a href="#review"><i class="fa fa-arrow-right" aria-hidden="true"></i>review</a>
+                <a href="#contact"><i class="fa fa-arrow-right" aria-hidden="true"></i>contact</a>
+            </div>
+            <div class="box">
+                <h3>follow us</h3>
+                <div class="ficon">
+                    <a href="https://www.facebook.com/nil.sachapara.37" target="_blank"><i
+                            class="fa fa-facebook-official fa-xl fb" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-twitter fa-xl tw" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/nilsachapara/" target="_blank"><i
+                            class="fa fa-instagram fa-xl insta" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-linkedin fa-xl lin" aria-hidden="true"></i></a>
+                </div>
+                <h3>Newsletter</h3>
+                <p>Subscribe For Latest Updates</p>
+                <form action="" method="post">
+                    <input class="email" type="email" name="email" placeholder="Enter Your Email"><br>
+                    <input class="subs email" type="submit" value="Subscribe">
+                </form>
+            </div>
+        </div>
+
+        <h1 class="credit"> created by <span>@ Pravas Tours private limited </span> | all rights reserved! </h1>
+    </section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/travel.js') }}"></script>
+    <script>
+        // remove the loading animation container after the page has loaded
+        // setTimeout(function() {
+        //     document.querySelector('.loader-container').style.display = 'none';
+        //   }, 1000);
+
+        window.onload = function () {
+            var loadingContainer = document.getElementById("loader-container");
+            loadingContainer.style.display = "none";
+        };
+    </script>
+
+</body>
+
+</html>
